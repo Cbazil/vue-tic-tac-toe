@@ -5,14 +5,16 @@ body {
     height: 100vh;
     background: skyblue;
 }
-#app {
-  position: relative;
-  top: 25%;
-  width: 75%;
-  height: 40%;
-  background-color: grey;
-  left: 10%;
-  border-radius: 4%;
+@media (max-width: 360px){
+  #app {
+    position: relative;
+    top: 25%;
+    width: 75%;
+    height: 42.8%;
+    background-color: grey;
+    left: 10%;
+    border-radius: 4%;
+   }
 }
 #table{
   width: 100%;
@@ -30,4 +32,14 @@ body {
   width: auto;
   height: auto;
   background-color: skyblue;
+  background: yellowgreen;
+  margin: 0;
+  padding: 0;
+}
+.squares > img {
+   max-width: 100%;
+   max-height: 100%;
+   width: auto;
+   height: auto;
+   
 }
