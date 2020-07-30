@@ -32,14 +32,13 @@ body {
   width: auto;
   height: auto;
   background-color: skyblue;
-  background: yellowgreen;
+  /* background: yellowgreen; */
   margin: 0;
-  padding: 0;
+  padding: 15%;
 }
 .squares > img {
    max-width: 100%;
    max-height: 100%;
    width: auto;
    height: auto;
-   
 }
