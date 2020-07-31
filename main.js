@@ -3,20 +3,27 @@ new Vue({
   el: "#app",
   data: {
     player: "player",
-    sq1: 0,
-    sq2: 0,
-    sq3: 0,
-    sq4: 0,
-    sq5: 0,
-    sq6: 0,
-    sq7: 0,
-    sq8: 0,
-    sq9: 0
+    squares: [ { id: "sq1", val: Number("0") },
+    { id: "sq2", val: Number("0") },
+    { id: "sq3", val: Number("0") },
+    { id: "sq4", val: Number("0") },
+    { id: "sq5", val: Number("0") },
+    { id: "sq6", val: Number("0") },
+    { id: "sq7", val: Number("0") },
+    { id: "sq8", val: Number("0") },
+    { id: "sq9", val: Number("0") }],
+    turn: true
   },
   methods: {
     move(event) {
       let targetId = event.currentTarget.id;
-      console.log(targetId);
+      let sqr = this.squares.find((item) =>  item.id === targetId);
+      if(this.turn) {
+      sqr.val = 1;
+      } else {
+        sqr.val = 2;
+      }
+      this.turn = !this.turn;
     }
   }
 })
