@@ -37,6 +37,8 @@ new Vue({
     sq7 = this.squares[6].val;
     sq8 = this.squares[7].val;
     sq9 = this.squares[8].val;
+    console.log(sq5);
+    this.botMove();    
         
     if((sq1 == "tic") && (sq2 == "tic") && (sq3 == "tic")){
       this.play = 1;
@@ -78,5 +80,35 @@ new Vue({
     }
     this.turn = !this.turn;
     },
+    randumb(arr1, arr2) {
+      var percent = Math.ceil(Math.random() * 100);
+      console.log(percent);
+      if (percent > 70) {
+        let ranNum = Math.floor(Math.random() * arr2.length);
+        console.log("Array Two: ", ranNum);
+        return arr2[ranNum];
+      } else {
+        let ranNum = Math.floor(Math.random() * arr1.length);
+        console.log("Array One: ", ranNum);
+        return arr1[ranNum];
+      }
+    },
+    botMove(){
+      let sqrs = this.squares;
+      sq1 = sqrs[0].val;
+      sq2 = sqrs[1].val;
+      sq3 = sqrs[2].val;
+      sq4 = sqrs[3].val;
+      sq5 = sqrs[4].val;
+      sq6 = sqrs[5].val;
+      sq7 = sqrs[6].val;
+      sq8 = sqrs[7].val;
+      sq9 = sqrs[8].val;
+      
+      if(sq1 == "" && sq2 == "" && sq3 == "" && sq4 == "" && sq5 == "tic" && sq6 == "" && sq7 == "" && sq8 == "" && sq9 == ""){
+        let move = this.randumb([sqrs[0], sqrs[8]], [sqrs[1], sqrs[2], sqrs[3], sqrs[7]]);
+        move.val = "tac";
+      }
+    }
   }
 })
