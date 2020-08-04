@@ -3,7 +3,7 @@ new Vue({
   el: "#app",
   data: {
     player: "player",
-    squares: [ { id: "sq1", val: Number("0") },
+    squares: [ { id: "sq1", val: "" },
     { id: "sq2", val: "" },
     { id: "sq3", val: "" },
     { id: "sq4", val: "" },
@@ -22,11 +22,8 @@ new Vue({
     move(event) {
       let targetId = event.currentTarget.id;
       let sqr = this.squares.find((item) =>  item.id === targetId);
-      if(this.turn) {
+      
       sqr.val = "tic";
-      } else {
-        sqr.val = "tac";
-      }
       
     sq1 = this.squares[0].val;
     sq2 = this.squares[1].val;
@@ -37,8 +34,8 @@ new Vue({
     sq7 = this.squares[6].val;
     sq8 = this.squares[7].val;
     sq9 = this.squares[8].val;
-    console.log(sq5);
-    this.botMove();    
+    // console.log(sq5);
+
         
     if((sq1 == "tic") && (sq2 == "tic") && (sq3 == "tic")){
       this.play = 1;
@@ -75,26 +72,28 @@ new Vue({
     } else {
       this.play = 0;
     }
+    
     if (this.play === 1){
         console.log("Game Over!");
     }
-    this.turn = !this.turn;
+    // this.turn = !this.turn;
+    this.botMove(this.squares);
     },
     randumb(arr1, arr2) {
       var percent = Math.ceil(Math.random() * 100);
-      console.log(percent);
+      // console.log(percent);
       if (percent > 70) {
         let ranNum = Math.floor(Math.random() * arr2.length);
-        console.log("Array Two: ", ranNum);
+        // console.log("Array Two: ", ranNum);
         return arr2[ranNum];
       } else {
         let ranNum = Math.floor(Math.random() * arr1.length);
-        console.log("Array One: ", ranNum);
+       // console.log("Array One: ", ranNum);
         return arr1[ranNum];
       }
     },
-    botMove(){
-      let sqrs = this.squares;
+    botMove(sqrs){
+       console.log(JSON.stringify(sqrs));
       sq1 = sqrs[0].val;
       sq2 = sqrs[1].val;
       sq3 = sqrs[2].val;
@@ -105,10 +104,43 @@ new Vue({
       sq8 = sqrs[7].val;
       sq9 = sqrs[8].val;
       
+      // Player Plays middle
       if(sq1 == "" && sq2 == "" && sq3 == "" && sq4 == "" && sq5 == "tic" && sq6 == "" && sq7 == "" && sq8 == "" && sq9 == ""){
         let move = this.randumb([sqrs[0], sqrs[8]], [sqrs[1], sqrs[2], sqrs[3], sqrs[7]]);
         move.val = "tac";
+      } 
+      // Phase 1 good move
+      if(sq1 == "tac" && sq2 == "" && sq3 == "tic" && sq4 == "" && sq5 == "tic" && sq6 == "" && sq7 == "" && sq8 == "" && sq9 == "") {
+        let move = this.randumb([sqrs[6]], [sqrs[3], sqrs[7]]);
+        move.val = "tac";
       }
-    }
+      if(sq1 == "" && sq2 == "" && sq3 == "" && sq4 ==  "" && sq5 == "tic" && sq6 == "" && sq7 == "tic" && sq8 == "" && sq9 == "tac"){
+        let move = this.randumb([sqrs[2]], [sqrs[1], sqrs[5]]);
+        move.val = "tac";
+      }
+      if(sq1 == "" && sq2 == "" && sq3 == "tac" && sq4 == "" && sq5 == "tic" && sq6 == "" && sq7 == "" && sq8 == "" && sq9 == "tic"){
+        let move = this.randumb([sqrs[0]], [sqrs[1], sqrs[3]]);
+        move.val = "tac";
+      }
+      // Phase 1 Bad move
+      if(sq1 == "" && sq2 == "tac" && sq3 == "tic" && sq4 == "" && sq5 == "tic" && sq6 == "" && sq7 == "" && sq8 == "" && sq9 == ""){
+        let move = this.randumb([sqrs[6]], [sqrs[6], sqrs[3], sqrs[7]]);
+        move.val = "tac";
+      } 
+      if(sq1 == "" && sq2 == "" && sq3 == "" && sq4 == "" && sq5 == "tic" && sq6 == "" && sq7 == "tic" && sq8 == "tac" && sq9 == ""){
+        let move = this.randumb([sqrs[2]], [sqrs[1], sqrs[2], sqrs[5]]);
+        move.val = "tac";
+      }
+      if(sq1 == "tic" && sq2 == "" && sq3 == "" && sq4== "tac" && sq5 == "tic" && sq6 == "" && sq7 == "" && sq8 == "" && sq9 == ""){
+        let move = this.randumb([sqrs[8]], [sqrs[5], sqrs[7], sqrs[8]]);
+        move.val = "tac";
+      }
+      // Player Plays any corner
+      // first corner
+      if(sq1 == "tic" && sq2 == "" && sq3 == "" && sq4 == "" && sq5 == "" && sq6 == "" && sq7 == "" && sq8 == "" && sq9 == ""){
+        let move = this.randumb([sqrs[4]], [sqrs[1], sqrs[2], sqrs[3], sqrs[4], sqrs[6], sqrs[8]]);
+        move.val = "tac";
+      }
+      // second corner
   }
 })
