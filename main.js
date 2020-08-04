@@ -195,6 +195,111 @@ new Vue({
         let move = this.randumb([sqrs[4]], [sqrs[4], sqrs[6], sqrs[8]]);
         move.val = 'tac';
       }
-    } 
+      // Winning moves
+      // top side
+      if(sq1 == '' && sq2 == 'tic' && sq2 == 'tic'){
+        let move = this.randumb([sqrs[0]], [sqrs[0]]);
+        move.val = 'tac';
+      }
+      if(sq1 == 'tic' && sq2 == '' && sq3 == 'tic'){
+        let move = this.randumb([sqrs[1]], [sqrs[1]]);
+        move.val = 'tac';
+      }
+      if(sq1 == 'tic' && sq2 == 'tic' && sq3 == ''){
+        let move = this.randumb([sqrs[2]],[sqrs[2]]);
+        move.val = 'tac';
+      }
+      // left side
+      if(sq1 == '' && sq4 == 'tic' && sq7 == 'tic'){
+        let move = this.randumb([sqrs[0]], [sqrs[0]]);
+        move.val = 'tac';
+      }
+      if(sq1 == 'tic' && sq4 == '' && sq7 == 'tic'){
+        let move = this.randumb([sqrs[3]], [sqrs[3]]);
+        move.val = 'tac';
+      }
+      if(sq1 == 'tic' && sq4 == 'tic' && sq7 == ''){
+        let move = this.randumb([sqrs[6]], [sqrs[6]]);
+        move.val = 'tac';
+      }
+      // right side 
+      if(sq3 == '' && sq6 == 'tic' && sq9 == 'tic'){
+        let move = this.randumb([sqrs[2]], [sqrs[2]]);
+        move.val = 'tac';
+      }
+      if(sq3 == 'tic' && sq6 == '' && sq9 == 'tic'){
+        let move = this.randumb([sqrs[5]], [sqrs[5]]);
+        move.val = 'tac';
+      }
+      if(sq3 == 'tic' && sq6 == 'tic' && sq9 == ''){
+        let move = this.randumb([sqrs[8]],[sqrs[8]]);
+        move.val = 'tac';
+      }
+      // bottom side 
+      if(sq7 == '' && sq8 == 'tic' && sq9 == 'tic'){
+        let move = this.randumb([sqrs[6]], [sqrs[6]]);
+        move.val = 'tac';
+      }
+      if(sq7 == 'tic' && sq8 == '' && sq9 == 'tic'){
+        let move = this.randumb([sqrs[7]], [sqrs[7]]);
+        move.val = 'tac';
+      }
+      if(sq7 == 'tic' && sq8 == 'tic' && sq9 == ''){
+        let move = this.randumb([sqrs[8]], [sqrs[8]]);
+        move.val = 'tac';
+      }
+      // verticle 
+      if(sq2 == '' && sq5 == 'tic' && sq8 == 'tic'){
+        let move = this.randumb([sqrs[1]], [sqrs[1]]);
+        move.val = 'tac';
+      }
+      if(sq2 == 'tic' && sq5 == '' && sq8 == 'tic'){
+        let move = this.randumb([sqrs[4]], [sqrs[4]]);
+        move.val = 'tac';
+      }
+      if(sq2 == 'tic' && sq5 == 'tic' && sq8 == ''){
+        let move = this.randumb([sqrs[7]], [sqrs[7]]);
+        move.val = 'tac';
+      }
+      // horizontal
+      if(sq4 == '' && sq5 == 'tic' && sq6 == 'tic'){
+        let move = this.randumb([sqrs[3]], [sqrs[3]]);
+        move.val = 'tac';
+      }
+      if(sq4 == 'tic' && sq5 == '' && sq6 == 'tic'){
+        let move = this.randumb([sqrs[4]], [sqrs[4]]);
+        move.val = 'tac';
+      }
+      if(sq4 == 'tic' && sq5 == 'tic' && sq6 == ''){
+        let move = this.randumb([sqrs[5]], [sqrs[5]]);
+        move.val = 'tac';
+      }
+      // Diagonal right
+      if(sq1 == '' && sq5 == 'tic' && sq9 == 'tic'){
+        let move = this.randumb([sqrs[0]], [sqrs[0]]);
+        move.val = 'tac';
+      }
+      if(sq1 == 'tic' && sq5 == '' && sq9 == 'tic'){
+        let move = this.randumb([sqrs[4]], [sqrs[4]]);
+        move.val = 'tac';
+      }
+      if(sq1 == 'tic' && sq5 == 'tic' && sq9 == ''){
+        let move = this.randumb([sqrs[8]], [sqrs[8]]);
+        move.val = 'tac';
+      }
+      // Diagonal left
+      if(sq3 == '' && sq5 == 'tic' && sq7 == 'tic'){
+        let move = this.randumb([sqrs[2]], [sqrs[2]]);
+        move.val = 'tac';
+      }
+      if(sq3 == 'tic' && sq5 == '' && sq7 == 'tic'){
+        let move = this.randumb([sqrs[4]], [sqrs[4]]);
+        move.val = 'tac';
+      }
+      if(sq3 == 'tic' && sq5 == 'tic' && sq7 == ''){
+        let move = this.randumb([sqrs[6]], [sqrs[6]]);
+        move.val = 'tac';
+      }
+    }  
   } 
 })
