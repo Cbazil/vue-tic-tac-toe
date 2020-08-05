@@ -29,6 +29,8 @@ new Vue({
       
     sqr.val = 'tic';
       
+    this.botMove(this.squares);       
+      
     sq1 = this.squares[0].val;
     sq2 = this.squares[1].val;
     sq3 = this.squares[2].val;
@@ -40,8 +42,6 @@ new Vue({
     sq9 = this.squares[8].val;
     // console.log(sq5);
     
-    this.botMove(this.squares);    
-        
     if(sq1 == 'tic' && sq2 == 'tic' && sq3 == 'tic'){
       this.play = 1;
     } 
