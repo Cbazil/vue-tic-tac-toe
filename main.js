@@ -37,8 +37,6 @@ new Vue({
       
     sqr.val = 'tic';
     
-    this.botMove(this.squares);       
-    
     sq1 = this.squares[0].val;
     sq2 = this.squares[1].val;
     sq3 = this.squares[2].val;
@@ -50,6 +48,7 @@ new Vue({
     sq9 = this.squares[8].val;
     // console.log(sq5);
     
+    // Check win for tic
     if(sq1 == 'tic' && sq2 == 'tic' && sq3 == 'tic'){
       this.ggTop = true;
       this.play = 1;
@@ -82,6 +81,21 @@ new Vue({
       this.ggDileft = true;
       this.play = 1;
     } 
+    // Refresh 
+    if (this.play == 0) {
+      this.botMove(this.squares);
+    }
+    sq1 = this.squares[0].val;
+    sq2 = this.squares[1].val;
+    sq3 = this.squares[2].val;
+    sq4 = this.squares[3].val;
+    sq5 = this.squares[4].val;
+    sq6 = this.squares[5].val;
+    sq7 = this.squares[6].val;
+    sq8 = this.squares[7].val;
+    sq9 = this.squares[8].val; 
+    
+    // Checks win for tac
     if(sq1 == 'tac' && sq2 == 'tac' && sq3 == 'tac') {
       this.ggTop = true;
       this.play = 1;
@@ -235,7 +249,7 @@ new Vue({
       }
       // Winning moves
       // top side
-      else if(sq1 == '' && sq2 == 'tic' && sq2 == 'tic' || sq1 == '' && sq2 == 'tac' && sq2 == 'tac'){
+      else if(sq1 == '' && sq2 == 'tic' && sq3 == 'tic' || sq1 == '' && sq2 == 'tac' && sq3 == 'tac'){
         let move = this.randumb([sqrs[0]], [sqrs[0]]);
         move.val = 'tac';
       }
@@ -365,6 +379,7 @@ new Vue({
         this.ggHori = false;
         this.ggDiright = false;
         this.ggDileft = false;
+        this.play = 0;
     }
   } 
 })

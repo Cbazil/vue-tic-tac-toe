@@ -22,6 +22,7 @@ body {
 #modes {
   display: flex;
   justify-content: space-around;
+  margin-top: -15px;
 }
 #modes > button {
   margin-right: 15px;
@@ -96,8 +97,8 @@ body {
 }
 #replayBtn {
   position: absolute;
-  height: 70px;
-  width: 70px;
+  height: 75px;
+  width: 75px;
   display: flex;
   flex-wrap: wrap;
   border: 2px solid #2b2d2f;
@@ -105,7 +106,7 @@ body {
   background: #2b2d2f;
   font-size: 21px;
   color: #eee;
-  top: 74%;
+  top: 76%;
 }
 h1 {
   font-size: 60px;
