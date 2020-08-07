@@ -108,7 +108,7 @@ new Vue({
       this.ggRight = true;
       this.play = 1;
     } 
-    if (sq7 == 'tac' && sq8 == 'tac' && sq9 == 'tic') {
+    if (sq7 == 'tac' && sq8 == 'tac' && sq9 == 'tac') {
       this.ggBottom = true;
       this.play = 1;
     } 
