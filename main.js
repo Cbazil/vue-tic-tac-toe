@@ -28,9 +28,9 @@ new Vue({
       let sqr = this.squares.find((item) =>  item.id === targetId);
       
     sqr.val = 'tic';
-      
+    
     this.botMove(this.squares);       
-      
+    
     sq1 = this.squares[0].val;
     sq2 = this.squares[1].val;
     sq3 = this.squares[2].val;
@@ -322,6 +322,17 @@ new Vue({
       let empty = arr.filter(item => item.val == "");
       let move = empty[Math.floor(Math.random() * empty.length)];
       move.val = 'tac';
+    },
+    replay(){
+      this.squares = [{ id: 'sq1', val: '' },
+        { id: 'sq2', val: '' },
+        { id: 'sq3', val: '' },
+        { id: 'sq4', val: '' },
+        { id: 'sq5', val: '' },
+        { id: 'sq6', val: '' },
+        { id: 'sq7', val: '' },
+        { id: 'sq8', val: '' },
+        { id: 'sq9', val: '' }];
     }
   } 
 })

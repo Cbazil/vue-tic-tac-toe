@@ -9,9 +9,11 @@ body {
   #app {
     width: inherit;
     height: inherit;
+    display: block;
   }
 }
 #header {
+  margin-top: -20px;
   position: relative;
   text-align: center;
   color: #fff;
@@ -22,11 +24,12 @@ body {
   justify-content: space-around;
 }
 #modes > button {
-  margin-left: -10px; 
-  padding: 4px 10px;
-  border: 2px solid darkgray;
-  border-radius: 5px;
-  background: darkgray;
+  margin-right: 15px;
+  border: 2px solid #2b2d2f;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #2b2d2f;
   font-size: 21px;
   color: #eee;
 }
@@ -76,14 +79,34 @@ body {
   bottom: 1%;
   text-align: center;
   font-size: 15px;
-  color: darkgray;
 }
 #link {
   display: inline-block;
-  align-content: center;
-  margin-top: -5px;
+  /* align-content: center; */
+  margin-top: 2px;
 }
 #link > a {
   text-decoration: none;
-  color: darkgray;
+  color: #2b2d2f;
+}
+#replay {
+  display: flex;
+  justify-content: center;
+  margin-left: -15px; 
+}
+#replayBtn {
+  position: absolute;
+  height: 70px;
+  width: 70px;
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid #2b2d2f;
+  border-radius: 50%;
+  background: #2b2d2f;
+  font-size: 21px;
+  color: #eee;
+  top: 74%;
+}
+h1 {
+  font-size: 60px;
 }
