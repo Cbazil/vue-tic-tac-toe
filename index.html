@@ -64,14 +64,14 @@
            <img v-if="squares[8].val === 'tac'" src="imgs/Circle.svg">
         </div>     
       </div>
-      <!-- <div id="ggTop"></div>
-      <div id="ggLeft"></div>
-      <div id="ggRight"></div>
-      <div id="ggBottom"></div>
-      <div id="ggVert"></div>
-      <div id="ggHori"></div>
-      <div id="ggDiright"></div>
-      <div id="ggDileft"></div> -->
+      <div id="ggTop" class="horiPoles" v-if="ggTop"></div>
+      <div id="ggLeft" class="vertPoles" v-if="ggLeft"></div>
+      <div id="ggRight" class="vertPoles" v-if="ggRight"></div>
+      <div id="ggBottom" class="horiPoles" v-if="ggBottom"></div>
+      <div id="ggVert" class="vertPoles" v-if="ggVert"></div>
+      <div id="ggHori" class="horiPoles" v-if="ggHori"></div>
+      <div id="ggDiright" v-if="ggDiright"></div>
+      <div id="ggDileft" v-if="ggDileft"></div>
     </div>
     <div id="replay">
       <button id="replayBtn" @click="replay">Play Again</button>

@@ -110,3 +110,56 @@ body {
 h1 {
   font-size: 60px;
 }
+#ggTop {
+  top: 15%;
+}
+#ggLeft {
+  left: 15%;
+}
+#ggRight {
+  right: 15%;
+}
+#ggBottom {
+  bottom: 15%;
+}
+#ggVert {
+  left: 48%;
+}
+#ggHori {
+  top: 48%;
+}
+#ggDiright {
+  position: absolute;
+  width: 125%;
+  height: 10px;
+  top: 48%;
+  left: -34px;
+  background-color: #fff;
+  border-radius: 15%;
+  transform: rotate(45deg);
+}
+ #ggDileft {
+  position: absolute;
+  width: 125%;
+  height: 10px;
+  top: 48%;
+  right: -34px;
+  background-color: #fff;
+  border-radius: 15%;
+  transform: rotate(-45deg);
+} 
+.horiPoles {
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 15%;
+}
+.vertPoles {
+  position: absolute;
+  height: 100%;
+  width: 10px;
+  top: 0;
+  background-color: #fff;
+  border-radius: 15%;
+}

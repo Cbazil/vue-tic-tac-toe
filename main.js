@@ -13,7 +13,15 @@ new Vue({
     { id: 'sq8', val: '' },
     { id: 'sq9', val: '' }],
     turn: true,
-    play: 0
+    play: 0,
+    ggTop: false,
+    ggLeft: false,
+    ggRight: false,
+    ggBottom: false,
+    ggVert: false,
+    ggHori: false,
+    ggDiright: false,
+    ggDileft: false
   },
   updated(){
     /* console.log(JSON.stringify(this.squares)); */
@@ -43,51 +51,67 @@ new Vue({
     // console.log(sq5);
     
     if(sq1 == 'tic' && sq2 == 'tic' && sq3 == 'tic'){
+      this.ggTop = true;
       this.play = 1;
     } 
     if(sq1 == 'tic' && sq4 == 'tic' && sq7 == 'tic'){
+      this.ggLeft = true;
       this.play = 1;
     } 
     if(sq3 == 'tic' && sq6 == 'tic' && sq9 == 'tic'){
+      this.ggRight = true;
       this.play = 1;
     } 
     if(sq7 == 'tic' && sq8 == 'tic' && sq9 == 'tic'){
+      this.ggBottom = true;
       this.play = 1;
     } 
     if(sq2 == 'tic' && sq5 == 'tic' && sq8 == 'tic'){
+      this.ggVert = true;
       this.play = 1;
     } 
     if(sq4 == 'tic' && sq5 == 'tic' && sq6 == 'tic'){
+      this.ggHori = true;
       this.play = 1;
     } 
     if(sq1 == 'tic' && sq5 == 'tic' && sq9 == 'tic'){
+      this.ggDiright = true;
       this.play = 1;
     } 
     if(sq3 == 'tic' && sq5 == 'tic' && sq7 == 'tic'){
+      this.ggDileft = true;
       this.play = 1;
     } 
     if(sq1 == 'tac' && sq2 == 'tac' && sq3 == 'tac') {
+      this.ggTop = true;
       this.play = 1;
     } 
     if (sq1 == 'tac' && sq4 == 'tac' && sq7 == 'tac') {
+      this.ggLeft = true;
       this.play = 1;
     } 
     if (sq3 == 'tac' && sq6 == 'tac' && sq9 == 'tac') {
+      this.ggRight = true;
       this.play = 1;
     } 
     if (sq7 == 'tac' && sq8 == 'tac' && sq9 == 'tic') {
+      this.ggBottom = true;
       this.play = 1;
     } 
     if (sq2 == 'tac' && sq5 == 'tac' && sq8 == 'tac') {
+      this.ggVert = true;
       this.play = 1;
     } 
     if (sq4 == 'tac' && sq5 == 'tac' && sq6 == 'tac') {
+      this.ggHori = true;
       this.play = 1;
     } 
     if (sq1 == 'tac' && sq5 == 'tac' && sq9 == 'tac') {
+      this.ggDiright = true;
       this.play = 1;
     }
     if (sq3 == 'tac' && sq5 == 'tac' && sq7 == 'tac') {
+      this.ggDileft = true;
       this.play = 1;
     } 
     
@@ -333,6 +357,14 @@ new Vue({
         { id: 'sq7', val: '' },
         { id: 'sq8', val: '' },
         { id: 'sq9', val: '' }];
+        this.ggTop = false;
+        this.ggLeft = false;
+        this.ggRight = false;
+        this.ggBottom = false;
+        this.ggVert = false;
+        this.ggHori = false;
+        this.ggDiright = false;
+        this.ggDileft = false;
     }
   } 
 })
