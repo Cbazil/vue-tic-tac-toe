@@ -13,6 +13,7 @@ new Vue({
     { id: 'sq8', val: '' },
     { id: 'sq9', val: '' }],
     turn: true,
+    computer: true,
     play: 0,
     ggTop: false,
     ggLeft: false,
@@ -34,102 +35,185 @@ new Vue({
     move(event) {
       let targetId = event.currentTarget.id;
       let sqr = this.squares.find((item) =>  item.id === targetId);
-      
-    sqr.val = 'tic';
-    
-    sq1 = this.squares[0].val;
-    sq2 = this.squares[1].val;
-    sq3 = this.squares[2].val;
-    sq4 = this.squares[3].val;
-    sq5 = this.squares[4].val;
-    sq6 = this.squares[5].val;
-    sq7 = this.squares[6].val;
-    sq8 = this.squares[7].val;
-    sq9 = this.squares[8].val;
-    // console.log(sq5);
-    
-    // Check win for tic
-    if(sq1 == 'tic' && sq2 == 'tic' && sq3 == 'tic'){
-      this.ggTop = true;
-      this.play = 1;
-    } 
-    if(sq1 == 'tic' && sq4 == 'tic' && sq7 == 'tic'){
-      this.ggLeft = true;
-      this.play = 1;
-    } 
-    if(sq3 == 'tic' && sq6 == 'tic' && sq9 == 'tic'){
-      this.ggRight = true;
-      this.play = 1;
-    } 
-    if(sq7 == 'tic' && sq8 == 'tic' && sq9 == 'tic'){
-      this.ggBottom = true;
-      this.play = 1;
-    } 
-    if(sq2 == 'tic' && sq5 == 'tic' && sq8 == 'tic'){
-      this.ggVert = true;
-      this.play = 1;
-    } 
-    if(sq4 == 'tic' && sq5 == 'tic' && sq6 == 'tic'){
-      this.ggHori = true;
-      this.play = 1;
-    } 
-    if(sq1 == 'tic' && sq5 == 'tic' && sq9 == 'tic'){
-      this.ggDiright = true;
-      this.play = 1;
-    } 
-    if(sq3 == 'tic' && sq5 == 'tic' && sq7 == 'tic'){
-      this.ggDileft = true;
-      this.play = 1;
-    } 
-    // Refresh 
-    if (this.play == 0) {
-      this.botMove(this.squares);
-    }
-    sq1 = this.squares[0].val;
-    sq2 = this.squares[1].val;
-    sq3 = this.squares[2].val;
-    sq4 = this.squares[3].val;
-    sq5 = this.squares[4].val;
-    sq6 = this.squares[5].val;
-    sq7 = this.squares[6].val;
-    sq8 = this.squares[7].val;
-    sq9 = this.squares[8].val; 
-    
-    // Checks win for tac
-    if(sq1 == 'tac' && sq2 == 'tac' && sq3 == 'tac') {
-      this.ggTop = true;
-      this.play = 1;
-    } 
-    if (sq1 == 'tac' && sq4 == 'tac' && sq7 == 'tac') {
-      this.ggLeft = true;
-      this.play = 1;
-    } 
-    if (sq3 == 'tac' && sq6 == 'tac' && sq9 == 'tac') {
-      this.ggRight = true;
-      this.play = 1;
-    } 
-    if (sq7 == 'tac' && sq8 == 'tac' && sq9 == 'tac') {
-      this.ggBottom = true;
-      this.play = 1;
-    } 
-    if (sq2 == 'tac' && sq5 == 'tac' && sq8 == 'tac') {
-      this.ggVert = true;
-      this.play = 1;
-    } 
-    if (sq4 == 'tac' && sq5 == 'tac' && sq6 == 'tac') {
-      this.ggHori = true;
-      this.play = 1;
-    } 
-    if (sq1 == 'tac' && sq5 == 'tac' && sq9 == 'tac') {
-      this.ggDiright = true;
-      this.play = 1;
-    }
-    if (sq3 == 'tac' && sq5 == 'tac' && sq7 == 'tac') {
-      this.ggDileft = true;
-      this.play = 1;
-    } 
-    
-    // this.turn = !this.turn;
+      if(this.computer){
+        sqr.val = 'tic';
+        
+        sq1 = this.squares[0].val;
+        sq2 = this.squares[1].val;
+        sq3 = this.squares[2].val;
+        sq4 = this.squares[3].val;
+        sq5 = this.squares[4].val;
+        sq6 = this.squares[5].val;
+        sq7 = this.squares[6].val;
+        sq8 = this.squares[7].val;
+        sq9 = this.squares[8].val;
+        // console.log(sq5);
+        
+        // Check win for tic
+        if(sq1 == 'tic' && sq2 == 'tic' && sq3 == 'tic'){
+          this.ggTop = true;
+          this.play = 1;
+        } 
+        if(sq1 == 'tic' && sq4 == 'tic' && sq7 == 'tic'){
+          this.ggLeft = true;
+          this.play = 1;
+        } 
+        if(sq3 == 'tic' && sq6 == 'tic' && sq9 == 'tic'){
+          this.ggRight = true;
+          this.play = 1;
+        } 
+        if(sq7 == 'tic' && sq8 == 'tic' && sq9 == 'tic'){
+          this.ggBottom = true;
+          this.play = 1;
+        } 
+        if(sq2 == 'tic' && sq5 == 'tic' && sq8 == 'tic'){
+          this.ggVert = true;
+          this.play = 1;
+        } 
+        if(sq4 == 'tic' && sq5 == 'tic' && sq6 == 'tic'){
+          this.ggHori = true;
+          this.play = 1;
+        } 
+        if(sq1 == 'tic' && sq5 == 'tic' && sq9 == 'tic'){
+          this.ggDiright = true;
+          this.play = 1;
+        } 
+        if(sq3 == 'tic' && sq5 == 'tic' && sq7 == 'tic'){
+          this.ggDileft = true;
+          this.play = 1;
+        } 
+        // Refresh 
+        if (this.play == 0) {
+          this.botMove(this.squares);
+        }
+        sq1 = this.squares[0].val;
+        sq2 = this.squares[1].val;
+        sq3 = this.squares[2].val;
+        sq4 = this.squares[3].val;
+        sq5 = this.squares[4].val;
+        sq6 = this.squares[5].val;
+        sq7 = this.squares[6].val;
+        sq8 = this.squares[7].val;
+        sq9 = this.squares[8].val; 
+        
+        // Checks win for tac
+        if(sq1 == 'tac' && sq2 == 'tac' && sq3 == 'tac') {
+          this.ggTop = true;
+          this.play = 1;
+        } 
+        if (sq1 == 'tac' && sq4 == 'tac' && sq7 == 'tac') {
+          this.ggLeft = true;
+          this.play = 1;
+        } 
+        if (sq3 == 'tac' && sq6 == 'tac' && sq9 == 'tac') {
+          this.ggRight = true;
+          this.play = 1;
+        } 
+        if (sq7 == 'tac' && sq8 == 'tac' && sq9 == 'tac') {
+          this.ggBottom = true;
+          this.play = 1;
+        } 
+        if (sq2 == 'tac' && sq5 == 'tac' && sq8 == 'tac') {
+          this.ggVert = true;
+          this.play = 1;
+        } 
+        if (sq4 == 'tac' && sq5 == 'tac' && sq6 == 'tac') {
+          this.ggHori = true;
+          this.play = 1;
+        } 
+        if (sq1 == 'tac' && sq5 == 'tac' && sq9 == 'tac') {
+          this.ggDiright = true;
+          this.play = 1;
+        }
+        if (sq3 == 'tac' && sq5 == 'tac' && sq7 == 'tac') {
+          this.ggDileft = true;
+          this.play = 1;
+        } 
+      } else {
+
+        if(this.turn){
+          sqr.val = 'tic';
+        } else {
+          sqr.val = 'tac';
+        }
+        sq1 = this.squares[0].val;
+        sq2 = this.squares[1].val;
+        sq3 = this.squares[2].val;
+        sq4 = this.squares[3].val;
+        sq5 = this.squares[4].val;
+        sq6 = this.squares[5].val;
+        sq7 = this.squares[6].val;
+        sq8 = this.squares[7].val;
+        sq9 = this.squares[8].val;
+        
+        this.turn = !this.turn;
+        // Check win for tic
+        if (sq1 == 'tic' && sq2 == 'tic' && sq3 == 'tic') {
+          this.ggTop = true;
+          this.play = 1;
+        }
+        if (sq1 == 'tic' && sq4 == 'tic' && sq7 == 'tic') {
+          this.ggLeft = true;
+          this.play = 1;
+        }
+        if (sq3 == 'tic' && sq6 == 'tic' && sq9 == 'tic') {
+          this.ggRight = true;
+          this.play = 1;
+        }
+        if (sq7 == 'tic' && sq8 == 'tic' && sq9 == 'tic') {
+          this.ggBottom = true;
+          this.play = 1;
+        }
+        if (sq2 == 'tic' && sq5 == 'tic' && sq8 == 'tic') {
+          this.ggVert = true;
+          this.play = 1;
+        }
+        if (sq4 == 'tic' && sq5 == 'tic' && sq6 == 'tic') {
+          this.ggHori = true;
+          this.play = 1;
+        }
+        if (sq1 == 'tic' && sq5 == 'tic' && sq9 == 'tic') {
+          this.ggDiright = true;
+          this.play = 1;
+        }
+        if (sq3 == 'tic' && sq5 == 'tic' && sq7 == 'tic') {
+          this.ggDileft = true;
+          this.play = 1;
+        }
+        // Checks win for tac
+        if (sq1 == 'tac' && sq2 == 'tac' && sq3 == 'tac') {
+          this.ggTop = true;
+          this.play = 1;
+        }
+        if (sq1 == 'tac' && sq4 == 'tac' && sq7 == 'tac') {
+          this.ggLeft = true;
+          this.play = 1;
+        }
+        if (sq3 == 'tac' && sq6 == 'tac' && sq9 == 'tac') {
+          this.ggRight = true;
+          this.play = 1;
+        }
+        if (sq7 == 'tac' && sq8 == 'tac' && sq9 == 'tac') {
+          this.ggBottom = true;
+          this.play = 1;
+        }
+        if (sq2 == 'tac' && sq5 == 'tac' && sq8 == 'tac') {
+          this.ggVert = true;
+          this.play = 1;
+        }
+        if (sq4 == 'tac' && sq5 == 'tac' && sq6 == 'tac') {
+          this.ggHori = true;
+          this.play = 1;
+        }
+        if (sq1 == 'tac' && sq5 == 'tac' && sq9 == 'tac') {
+          this.ggDiright = true;
+          this.play = 1;
+        }
+        if (sq3 == 'tac' && sq5 == 'tac' && sq7 == 'tac') {
+          this.ggDileft = true;
+          this.play = 1;
+        }        
+      }
     },
     randumb(arr1, arr2) {
       var percent = Math.ceil(Math.random() * 100);
@@ -380,6 +464,13 @@ new Vue({
         this.ggDiright = false;
         this.ggDileft = false;
         this.play = 0;
+        this.turn = true;
+    },
+    twoPlayer(){
+      this.computer = false;
+    },
+    vsBot(){
+      this.computer = true;
     }
   } 
 })

@@ -21,13 +21,14 @@
     <div id="header">
       <h1>Tic-Tac-Toe</h1>
       <div id="modes">
-        <button>PvP</button>
-        <button>COM</button>
+        <button v-bind:class={opponent:!computer} @click="twoPlayer">PvP</button>
+        <button v-bind:class={opponent:computer} @click="vsBot">AI</button>
        </div>
     </div>
     <div id="game-container">
       <div id="table">
-        <div id="sq1" class="squares" @click="move($event)">
+        <div id="sq1" class="squares"
+       @click="move($event)">
            <img v-if="squares[0].val === 'tic'" src="imgs/Cross.svg">
            <img v-if="squares[0].val === 'tac'" src="imgs/Circle.svg">
         </div>
@@ -74,7 +75,7 @@
       <div id="ggDileft" v-if="ggDileft"></div>
     </div>
     <div id="replay">
-      <button id="replayBtn" @click="replay">Play Again</button>
+      <button id="replayBtn" @click="replay">New Game</button>
     </div>
     <div id="myFooter">
        <div id="link"><a href="https://twitter.com/Cbazil3">&copy;Cbazil 2020 </a></div>

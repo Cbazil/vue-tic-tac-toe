@@ -164,3 +164,8 @@ h1 {
   background-color: #fff;
   border-radius: 15%;
 }
+.opponent {
+  background-color: #fff !important;
+  color: #2b2d2f !important;
+  border: #2b2d2f solid 4px !important;
+}
