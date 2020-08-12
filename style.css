@@ -108,6 +108,7 @@ body {
   color: #eee;
   top: 76%;
 }
+
 h1 {
   font-size: 60px;
 }
@@ -168,4 +169,7 @@ h1 {
   background-color: #fff !important;
   color: #2b2d2f !important;
   border: #2b2d2f solid 4px !important;
+}
+em {
+  color: #2b2d2f;
 }

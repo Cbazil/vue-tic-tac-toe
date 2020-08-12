@@ -19,7 +19,7 @@
 <body>
   <div id="app">
     <div id="header">
-      <h1>Tic-Tac-Toe</h1>
+      <h1><em>Ti</em>c-<em>Ta</em>c-<em>To</em>e</h1>
       <div id="modes">
         <button v-bind:class={opponent:!computer} @click="twoPlayer">PvP</button>
         <button v-bind:class={opponent:computer} @click="vsBot">AI</button>
@@ -28,39 +28,39 @@
     <div id="game-container">
       <div id="table">
         <div id="sq1" class="squares"
-       @click="move($event)">
+       @click.once="move($event)" :key="keyOne">
            <img v-if="squares[0].val === 'tic'" src="imgs/Cross.svg">
            <img v-if="squares[0].val === 'tac'" src="imgs/Circle.svg">
         </div>
-        <div id="sq2" class="squares" @click="move($event)">
+        <div id="sq2" class="squares" @click.once="move($event)" :key="keyTwo">
            <img v-if="squares[1].val === 'tic'" src="imgs/Cross.svg">
            <img v-if="squares[1].val === 'tac'" src="imgs/Circle.svg">
         </div>
-        <div id="sq3" class="squares" @click="move($event)">
+        <div id="sq3" class="squares" @click.once="move($event)" :key="keyThree">
            <img v-if="squares[2].val === 'tic'" src="imgs/Cross.svg">
            <img v-if="squares[2].val === 'tac'" src="imgs/Circle.svg">
         </div>
-        <div id="sq4" class="squares" @click="move($event)">
+        <div id="sq4" class="squares" @click.once="move($event)" :key="keyFour">
            <img v-if="squares[3].val === 'tic'" src="imgs/Cross.svg">
            <img v-if="squares[3].val === 'tac'" src="imgs/Circle.svg">
         </div>
-        <div id="sq5" class="squares" @click="move($event)">
+        <div id="sq5" class="squares" @click.once="move($event)" :key="keyFive">
            <img v-if="squares[4].val === 'tic'" src="imgs/Cross.svg">
            <img v-if="squares[4].val === 'tac'" src="imgs/Circle.svg">
         </div>
-        <div id="sq6" class="squares" @click="move($event)">
+        <div id="sq6" class="squares" @click.once="move($event)" :key="keySix">
            <img v-if="squares[5].val === 'tic'" src="imgs/Cross.svg">
            <img v-if="squares[5].val === 'tac'" src="imgs/Circle.svg">
         </div>
-         <div id="sq7" class="squares" @click="move($event)">
+         <div id="sq7" class="squares" @click.once="move($event)" :key="keySeven">
            <img v-if="squares[6].val === 'tic'" src="imgs/Cross.svg">
            <img v-if="squares[6].val === 'tac'" src="imgs/Circle.svg">
         </div>
-        <div id="sq8" class="squares" @click="move($event)">
+        <div id="sq8" class="squares" @click.once="move($event)" :key="keyEight">
            <img v-if="squares[7].val === 'tic'" src="imgs/Cross.svg">
            <img v-if="squares[7].val === 'tac'" src="imgs/Circle.svg">
         </div>
-        <div id="sq9" class="squares" @click="move($event)">
+        <div id="sq9" class="squares" @click.once="move($event)" :key="keyNine">
            <img v-if="squares[8].val === 'tic'" src="imgs/Cross.svg">
            <img v-if="squares[8].val === 'tac'" src="imgs/Circle.svg">
         </div>     

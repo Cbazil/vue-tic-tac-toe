@@ -22,7 +22,16 @@ new Vue({
     ggVert: false,
     ggHori: false,
     ggDiright: false,
-    ggDileft: false
+    ggDileft: false,
+    keyOne: '1',
+    keyTwo: '2',
+    keyThree: '3',
+    keyFour: '4',
+    keyFive: '5',
+    keySix: '6',
+    keySeven: '7',
+    keyEight: '8',
+    keyNine: '9'
   },
   updated(){
     /* console.log(JSON.stringify(this.squares)); */
@@ -36,8 +45,9 @@ new Vue({
       let targetId = event.currentTarget.id;
       let sqr = this.squares.find((item) =>  item.id === targetId);
       if(this.computer){
+        if(sqr.val.length == 0){
         sqr.val = 'tic';
-        
+        }
         sq1 = this.squares[0].val;
         sq2 = this.squares[1].val;
         sq3 = this.squares[2].val;
@@ -84,7 +94,9 @@ new Vue({
         } 
         // Refresh 
         if (this.play == 0) {
+          if(sqr.val != "tac"){
           this.botMove(this.squares);
+          }
         }
         sq1 = this.squares[0].val;
         sq2 = this.squares[1].val;
@@ -465,6 +477,15 @@ new Vue({
         this.ggDileft = false;
         this.play = 0;
         this.turn = true;
+        this.keyOne = this.keyOne + this.keyOne;
+        this.keyTwo = this.keyTwo + this.keyTwo;
+        this.keyThree = this.keyThree + this.keyThree;
+        this.keyFour = this.keyFour + this.keyFour;
+        this.keyFive = this.keyFive + this.keyFive;
+        this.keySix = this.keySix + this.keySix;
+        this.keySeven = this.keySeven + this.keySeven;
+        this.keyEight = this.keyEight + this.keyEight;
+        this.keyNine = this.keyNine + this.keyNine;
     },
     twoPlayer(){
       this.computer = false;
@@ -473,4 +494,4 @@ new Vue({
       this.computer = true;
     }
   } 
-})
+}) 
